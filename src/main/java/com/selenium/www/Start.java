@@ -18,7 +18,6 @@ public class Start {
         Connection con=connect.createConnection();
         PreparedStatement pst;
         ResultSet res;
-        List<String> list1=new ArrayList<String>();
         String s;
         String url;
         String title;
@@ -60,7 +59,7 @@ public class Start {
                  list.clear();
              }
          }
-         //获取第三层连接
+         //获取第三层连接,并将文本内容插入到数据库中
         pst=con.prepareStatement("select url from url_save where typecode=2;");
         res=pst.executeQuery();
         list.clear();
@@ -82,13 +81,14 @@ public class Start {
                    //需要获取div的子元素，还没有处理
                     list= webDriver.findElement(By.className("con_content")).findElements(By.tagName("<p>"));
                     for(WebElement webElement1:list){
-
+                    buffer.append(webElement1.getText());
                     }
-                 content=webElement.getAttribute("");
+                 content=buffer.toString();
                  pst=con.prepareStatement("insert into content_save values (?,?,?)");
                  pst.setString(1,s);
                  pst.setString(2,title);
                  pst.setString(3,content);
+                 pst.execute();
                 }
                 list.clear();
             }
