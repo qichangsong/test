@@ -7,7 +7,9 @@ import org.openqa.selenium.WebElement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Start {
@@ -15,6 +17,8 @@ public class Start {
         MysqlConnect connect=new MysqlConnect();
         Connection con=connect.createConnection();
         PreparedStatement pst;
+        ResultSet res;
+        List<String> list1=new ArrayList<String>();
         String s;
        String regex="^((http)?:\\/\\/www\\.zuowen\\.com/e)(.*)";
        String regex1="^((http)?:\\/\\/www\\.zuowen\\.com)(.*)";
@@ -31,6 +35,9 @@ public class Start {
              System.out.println(s);
         }
       }
+         pst=con.prepareStatement("select url from url_save where typecode=1;");
+         res=pst.executeQuery();
+
       connect.close();
       webDriver.close();
     }
