@@ -24,6 +24,7 @@ public class Start {
         String title;
         String content;
         WebElement webElement;
+        StringBuffer buffer=new StringBuffer();
        String regex="^((http)?:\\/\\/www\\.zuowen\\.com/e)(.*)";
        String regex1="^((http)?:\\/\\/www\\.zuowen\\.com)(.*)";
         BootChome bootChome=new BootChome();
@@ -79,7 +80,10 @@ public class Start {
                    webElement= webDriver.findElement(By.className("h_title"));
                    title=  webElement.getText();
                    //需要获取div的子元素，还没有处理
-                    webElement= webDriver.findElement(By.className("con_content"));
+                    list= webDriver.findElement(By.className("con_content")).findElements(By.tagName("<p>"));
+                    for(WebElement webElement1:list){
+
+                    }
                  content=webElement.getAttribute("");
                  pst=con.prepareStatement("insert into content_save values (?,?,?)");
                  pst.setString(1,s);
