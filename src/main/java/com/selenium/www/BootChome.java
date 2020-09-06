@@ -9,6 +9,7 @@ public class BootChome {
         System.setProperty("webdriver.chrome.driver", "c:\\chromedriver.exe");
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("http://www.zuowen.com/e/20200523/5ec9394f1007f.shtml");
+       // webDriver.get("http://www.zuowen.com/e/20200309/5e65ce10b5586.shtml");
         webDriver.manage().window().maximize();
         return webDriver;
     }
