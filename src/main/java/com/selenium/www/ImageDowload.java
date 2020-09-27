@@ -18,7 +18,8 @@ public class ImageDowload {
         Connection con = connect.createConnection();
         PreparedStatement pst;
         ResultSet res;
-        pst=con.prepareStatement("select * from image");
+        pst=con.prepareStatement("select * from image where wdtcode='939000001'");
+       // pst.setString(1,"939000001");
         res=pst.executeQuery();
         String s;
         String s1;

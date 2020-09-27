@@ -16,12 +16,7 @@ import java.sql.*;
             conn = DriverManager.getConnection("jdbc:mysql://106.54.88.89/test1?useUnicode=true&characterEncoding=utf8", "root", "MIN@lan3102");
             return conn;
         }
-        public void insetUrl(int type,String url) throws SQLException {
-           pst = conn.prepareStatement("insert into url_save values (?,?)");
-            pst.setString(1, url);
-            pst.setString(2, String.valueOf(type));
 
-        }
         public void close() throws SQLException {
             conn.close();
         }
