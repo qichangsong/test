@@ -8,7 +8,10 @@ import java.sql.*;
     public class MysqlConnect {
         Connection conn;
         PreparedStatement pst;
+ /**
+  *  用于数据连接的处理
 
+  */
 
         public Connection createConnection() throws ClassNotFoundException, SQLException {
             Class.forName("com.mysql.jdbc.Driver");

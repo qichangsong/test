@@ -3,6 +3,9 @@ package com.selenium.www;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+/**
+ * 启动浏览器并输入地址，返回WebDriver实例
+ */
 public class BootChome {
     public WebDriver bootChrome(){
         //  BootA boot= new BootA();
