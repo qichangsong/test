@@ -5,6 +5,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
+/**
+ * 创建文件并写入内容
+ */
 public class FileCreate {
     public static void main(String[] args) throws IOException {
         File file=new File("D:\\1.txt");

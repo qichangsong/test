@@ -12,6 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * 用来下载图片
+ */
 public class ImageDowload {
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
         MysqlConnect connect = new MysqlConnect();
