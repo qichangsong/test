@@ -22,7 +22,7 @@ public class ImageDowload {
         PreparedStatement pst;
         ResultSet res;
         //根据旺店通商家编码去查询图片的路径，每一个商家编码对应多张图片
-        pst=con.prepareStatement("select * from image where wdtcode='939000001'");
+        pst=con.prepareStatement("select * from image");
         res=pst.executeQuery();
         String s;
         String s1;
