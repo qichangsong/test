@@ -29,27 +29,32 @@ public class ImageDowload {
         String s2;
         File file;
         int i=1;
-        while (res.next()) {
-            s=res.getString("imageUrl");
-            s1=res.getString("wdtcode");
-            s2=res.getString("imagetype");
-            URL url1 = new URL(s);
-          //  System.out.println(s);
-            URLConnection uc = url1.openConnection();
-            InputStream inputStream = uc.getInputStream();
-            file=new File("D:\\image\\"+s1);
-            if(!file.exists()) {
-                file.mkdir();
-            }
-            FileOutputStream out = new FileOutputStream("D:\\image\\"+s1+"\\"+s1+"_"+s2+".jpeg");
-            i++;
-            int j = 0;
-            while ((j = inputStream.read()) != -1) {
-                out.write(j);
-            }
-            inputStream.close();
 
-        }
+            while (res.next()) {
+                try {
+                    s = res.getString("imageUrl");
+                    s1 = res.getString("wdtcode");
+                    s2 = res.getString("imagetype");
+                    URL url1 = new URL(s);
+                    //  System.out.println(s);
+                    URLConnection uc = url1.openConnection();
+                    InputStream inputStream = uc.getInputStream();
+                    file = new File("D:\\image\\" + s1);
+                    if (!file.exists()) {
+                        file.mkdir();
+                    }
+                    FileOutputStream out = new FileOutputStream("D:\\image\\" + s1 + "\\" + s1 + "_" + s2 + ".jpeg");
+                    i++;
+                    int j = 0;
+                    while ((j = inputStream.read()) != -1) {
+                        out.write(j);
+                    }
+                    inputStream.close();
+                }catch (Exception e){
+                    e.printStackTrace();
+
+                }
+            }
 
     }
 }

@@ -18,7 +18,7 @@ public class FileCreate {
             fileWriter.append("文字");
             fileWriter.flush();
         }else{
-            for(int i=1;i<=1000;i++){
+            for(int i=1;i<=10000;i++){
 
                 fileWriter.append("10001"+i+"\n");
 
