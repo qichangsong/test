@@ -1,14 +1,25 @@
 package com.selenium.www;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import com.google.gson.internal.$Gson$Preconditions;
+
+import java.io.*;
 
 public class Test1 {
-    public static void main(String[] args) {
-     BootChome bootChome=new BootChome();
-     WebDriver webDriver=bootChome.bootChrome();
-     webDriver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div/ul/li[1]/div")).click();
-        webDriver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div/ul/li[1]/ul/li[1]/a")).click();
+    public static void main(String[] args){
+        try{
+            File file=new File("d:\\a.png");
+            if(file.exists()){
+             if(file.isFile()){
+               file.renameTo(new File("d:\\c.png"));
+               System.out.println("文件重命命成功");
+             }
+             }else {
+                System.out.println("文件不存在");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 }
